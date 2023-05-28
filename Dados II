@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Criando a tabela
+dados = {'Vazão (m³/h)': [1.6, 1.5, 1.4, 1.3, 1.2, 1.1, 1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2],
+         'Pressão TQ2 (psi)': [9, 9, 13, 18, 23, 27, 31, 37, 39, 43, 45, 47, 49, 51, 52],
+         'Pressão Bomba (psi)': [38, 38, 39, 40, 42, 42, 45, 46, 48, 50, 51, 51, 51, 53, 53],
+         'Variação tempo (Segundos)': [50, 23, 15, 11, 6, 7, 9, 5, 4, 4, 5, 4, 4, 13, 12]}
+
+df = pd.DataFrame(data=dados)
+
+# Gráfico Vazão x Tempo
+plt.plot(df['Vazão (m³/h)'], df['Variação tempo (Segundos)'])
+plt.title('Vazão x Tempo')
+plt.xlabel('Vazão (m³/h)')
+plt.ylabel('Variação tempo (Segundos)')
+plt.show()
+
+# Gráfico Pressão Bomba x Tempo
+plt.plot(df['Pressão Bomba (psi)'], df['Variação tempo (Segundos)'])
+plt.title('Pressão Bomba x Tempo')
+plt.xlabel('Pressão Bomba (psi)')
+plt.ylabel('Variação tempo (Segundos)')
+plt.show()
+
+# Gráfico Pressão TQ2 x Tempo
+plt.plot(df['Pressão TQ2 (psi)'], df['Variação tempo (Segundos)'])
+plt.title('Pressão TQ2 x Tempo')
+plt.xlabel('Pressão TQ2 (psi)')
+plt.ylabel('Variação tempo (Segundos)')
+plt.show()
+
+# Gráfico Pressão Bomba & Pressão TQ2 x Vazão
+plt.plot(df['Vazão (m³/h)'], df['Pressão Bomba (psi)'], label='Pressão Bomba')
+plt.plot(df['Vazão (m³/h)'], df['Pressão TQ2 (psi)'], label='Pressão TQ2')
+plt.title('Pressão Bomba & Pressão TQ2 x Vazão')
+plt.xlabel('Vazão (m³/h)')
+plt.ylabel('Pressão (psi)')
+plt.legend()
+plt.show()
